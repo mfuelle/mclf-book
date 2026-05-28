@@ -47,3 +47,8 @@ For now, please cite a specific Git commit or release rather than the moving `ma
 Unless otherwise indicated, the text of this book is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
 See the file `LICENSE` for details.
+
+## Book plan
+
+A provisional working plan for the book is maintained in [`BOOK_PLAN.md`](BOOK_PLAN.md).
+It records the intended structure, open questions, and possible future changes.
