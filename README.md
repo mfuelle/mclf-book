@@ -10,9 +10,40 @@ Although the text is not intended to be in final form for some time, individual 
 
 Preliminary and under active development.
 
+At the moment the repository only contains the initial LaTeX structure. Chapters will be added gradually.
+
+## Repository structure
+
+* `main.tex`: main LaTeX file.
+* `preamble.tex`: packages, theorem environments, and general LaTeX setup.
+* `macros.tex`: notation and mathematical macros.
+* `references.bib`: bibliography database.
+* `chapters/`: chapter files.
+* `figures/`: figures and figure sources.
+* `notes/`: background material, seminar programs, and other source documents.
+
 ## Compiling
 
 The book is written in LaTeX. The intended way to compile it is
 
 ```bash
 latexmk -pdf main.tex
+```
+
+Generated LaTeX auxiliary files and compiled PDFs should normally not be committed to the repository.
+
+## Contributing
+
+Contributions should be made through branches and pull requests.
+
+When editing LaTeX files, please use one sentence per line whenever possible. This makes Git diffs and collaborative editing much easier to read.
+
+## Citation
+
+For now, please cite a specific Git commit or release rather than the moving `main` branch.
+
+## License
+
+Unless otherwise indicated, the text of this book is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+See the file `LICENSE` for details.

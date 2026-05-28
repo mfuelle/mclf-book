@@ -1,0 +1,55 @@
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# More LaTeX/editor byproducts
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.loa
+*.nav
+*.snm
+*.vrb
+
+# Generated PDFs by default
+*.pdf
+
+# Allow PDFs in selected folders
+!notes/
+!notes/**/*.pdf
+!releases/
+!releases/**/*.pdf
+
+# Temporary files
+*.tmp
+*.bak
+*~
+*.swp
+*.swo
+
+# Editor/project files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
