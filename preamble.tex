@@ -24,12 +24,23 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{unicode-math}
 
 % Classical list package.
 \usepackage{enumerate}
 
 % Commutative diagrams.
 \usepackage{tikz-cd}
+\newcommand{\cdpunkt}{\mathrlap{\, .}}
+\tikzset{
+    symbol/.style={
+        draw=none,
+        every to/.append style={
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+\usepackage{tikzit}
+\input{basic.tikzstyles}
 
 % Graphics.
 \usepackage{graphicx}
