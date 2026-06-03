@@ -28,7 +28,7 @@ Let $X$ be a smooth, projective and absolutely irreducible curve over $K$.
 \begin{remark} \label{rem:flatIffIntegral}
     The condition of a model being flat is equivalent to it being integral:
     If $\X \to \Spec \OK $ is an integral scheme, then for every $x\in \X$, the stalk $\OO_{\X,x}$ is an integral ring extension of $\OK$.
-    Thus $\OO_{\X,x}$ is a torsion-free module over the DVR $\OK$, hence flat by~\cite[Corollary 1.2.14]{Liu}.
+    Thus $\OO_{\X,x}$ is a torsion-free module over the discrete valuation ring $\OK$, hence flat by~\cite[Corollary 1.2.14]{Liu}.
     Conversely, the integrality of a model $\X$ of $X$ follows from its flatness and the integrality of $X$ by~\cite[Proposition 4.3.8]{Liu}.
 \end{remark}
 
@@ -86,7 +86,7 @@ In this section, we assume the valuation $v_K$ to be \textit{normalised}, i.e. $
 Let $\X$ be a model of $X$.
 We wish to assign a valuation in $V_\textrm{II}(F_X)$ to each generic point of the special fibre $\X_s$.
 Suppose that $Z$ is an irreducible component of $\X_s$ with generic point $\xi$.
-Since $\xi$ has codimension $1$ in $\X$, the stalk $\OO_{\X,\xi}$ is a DVR\@.
+Since $\xi$ has codimension $1$ in $\X$, the stalk $\OO_{\X,\xi}$ is a discrete valuation ring\@.
 Thus, we can define a valuation on $F_X$,
 \begin{align} \label{eq:ValuationOfComponent}
     v_Z: \mathrm{Frac}(\OO_{\X, \xi}) = F_X \to \hat{\QQ}.
@@ -120,7 +120,7 @@ We set
 \end{proposition}
 
 \begin{proof}
-    As the model $\X$ is normal, the stalk $\OO_{\X, \xi}$ is a DVR\@.
+    As the model $\X$ is normal, the stalk $\OO_{\X, \xi}$ is a discrete valuation ring\@.
     Let $\pi_\xi$ denote an uniformizing parameter, then
     \begin{align}
         \OO_{\X_s,\xi} = \OO_{\X,\xi}/(\pi_\xi).
@@ -168,7 +168,7 @@ In the remainder of this section, we prove injectivity of this map.
     Since $\varphi$ is surjective (cf.\ Remark~\ref{rem:ModificationsAreSurjective}),
     there is a point $\eta'$ on an irreducible component $Z' \subset \X_s'$ which is mapped to $\eta$.
     Since $\varphi$ is dominant, the induced ring homomorphism $\OO_{\X,\eta} \to \OO_{\X',\eta'}$ is injective.
-    This is an extension of DVRs and thus $\eta' \in Z'$ must be generic.
+    This is an extension of discrete valuation rings and thus $\eta' \in Z'$ must be generic.
     In particular, if $\varphi$ is birational, then both rings are integrally closed in the same field of fractions which makes them equal.
     Therefore, $\eta'$ must be unique since $\X'$ is separated.
 \end{proof}
@@ -555,3 +555,94 @@ Now we can finally prove Proposition~\ref{prop:constructing_models}~\ref{prop:co
     It follows from \cite[Corollary 5.3.24]{Liu} that $\OO_\X(D)$ is ample.
     So $\X \to \Spec \OO_K$ is projective (\cite[Proposition 5.3.6]{Liu}).
 \end{remark}
+
+
+\section{Permament Models}\label{sec:permament-models}
+
+\subsection{Models with Reduced Special Fibre}\label{subsec:models-with-reduced-special-fibre}
+
+As in the last two sections, we assume $X$ to be a smooth, projective and absolutely irreducible curve over the local
+field $K$.
+
+\begin{definition}
+    A model $\X$ of $X$ is called \textit{permanent}, if $\X \times_{\OK} \OL$ is normal for all finite field extensions $L|K$.
+\end{definition}
+
+\begin{remark}
+    Since flatness and properness are preserved under base change, a model $\X$ of $X$ is permanent if and only if
+    $\X \times_{\OK} \OL$ is a model of $X_L = X \times_K L$.
+\end{remark}
+
+\begin{definition}
+    A \textit{pre-model} of $X$ is a flat and proper $\OK$-scheme $\X$ with $\X \times_{\OK} K = X$.
+    That is, $\X$ satisfies all the conditions of a model except of being normal.
+\end{definition}
+
+\begin{lemma}[{\cite[Lemma 1.3]{ArzdorfWewers}}]\label{lem:conditions-for-normality}
+    Let $\X$ be a pre-model of $X$.
+    Then $\X$ is normal (i.e.\ a model) if and only if the following two conditions hold.
+    \begin{enumerate}[(i)]
+        \item The special fibre $\X_s$ has no embedded points, i.e.\ no point $x\in \X_s$ \label{lem:conditions-for-normality-i}
+            satisfying $\m_x = \Ann{R}{r}$ for some $r\in R \coloneqq \OO_{\X_s,x}$ (see~\cite[Definition 7.1.6]{Liu}).
+        \item The local ring $\OO_{\X\eta}$ is a discrete valuation ring for every generic point $\eta \in \X_s$. \label{lem:conditions-for-normality-ii}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    According to Serre's criterion for normality~\cite[Theorem 8.2.23]{Liu},
+    we need to check the following properties:
+    \begin{itemize}
+        \item[$(\mathrm{R}_1)$] $\X$ is regular at $x$ when $\codim{x} \leq 1$, and
+        \item[$(\mathrm{S}_2)$] $\depth{\OO_{\X,x}} \geq 2$.
+    \end{itemize}
+    for all $x\in \X$. \\
+    The points on $\X$ with codimension $1$ are precisely the points on the generic fibre, which is regular by assumption,
+    and the generic point on the special fibre.
+    Since any discrete valuation ring is a local Noetherian domain and vice versa, $(\mathrm{R}_1)$ is
+    equivalent to (\ref{lem:conditions-for-normality-i}).
+    By~\cite[Proposition 8.2.11]{Liu}, condition $(\mathrm{S}_2)$ is equivalent to say
+    that $\depth{\OO_{\X_s, x}} \geq 1$ for all $x \in \X_s$.
+    But this is always true for the generic point, and if $x$ is a different point it is equivalent to say that $x$ is not an embedded point.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item Consider a pre-model with special fibre $\X_s \coloneqq \Spec{k[x,y]/(x^2,xy)}$, which is topologically equivalent
+            to $\AA^1(k)$.
+            The point corresponding to the maximal ideal $(x,y)$ is an embedded point.
+        \item \textcolor{red}{\cite[Example 9.8.4]{Hartshorne}}.
+    \end{enumerate}
+\end{example}
+
+\begin{proposition}[{\cite[Proposition 2.3]{ArzdorfWewers}}]
+    If $\X_s$ is reduced, then $\X$ is permanent.
+\end{proposition}
+
+\begin{proof}
+    Let $L|K$ be a finite extension and $l|k$ the extension of the corresponding residue fields.
+    The special fibre of $\X' \coloneqq \X_{\OL} = \X \times_{\OK} \OL$ is $\X'_s := \X_s \times_k l$,
+    which is reduced since $k$ is perfect by assumption.
+    This means $\X'_s$ satisfies condition (ii) from Lemma~\ref{lem:conditions-for-normality}. \\
+    For condition (i) let $\eta \in \X'_s$ be any generic point.
+    The chalk $\OO_{\X', \eta}$ then is a Noetherian local domain of dimension $1$ and it holds
+    \begin{align}
+        \OO_{\X'_s, \eta} = \OO_{\X', \eta}/\pi_L\OO_{\X', \eta},
+    \end{align}
+    where $\pi_L \in \OL$ is a uniformising parameter.
+    Since $\X'_s$ is reduced, $\pi_L\OO_{\X',\eta}$ is maximal ideal which means that
+    condition (i) from Lemma~\ref{lem:conditions-for-normality} is satisfied as well.
+    Thus $\X'$ is normal and hence $\X$ is permanent.
+\end{proof}
+
+\begin{proposition}[{\cite[Corollary 2.2 (ii)]{ArzdorfWewers}}]
+    Let $\X$ be a model of $X$, then the following statements are equivalent.
+    \begin{enumerate}[(i)]
+        \item $\X_s$ is reduced.
+        \item $\OO_{\X_s, \eta}$ is a field for every generic point $\eta \in \X_s$.
+        \item Every $v_Z \in V(\X)$ is weakly ramified.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Since $\X$ is normal, there are no embedded points in $\X_s$ by Lemma~\ref{lem:conditions-for-normality}.
+\end{proof}
