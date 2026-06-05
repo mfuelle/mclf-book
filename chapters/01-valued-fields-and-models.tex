@@ -115,7 +115,7 @@ We set
     \end{align}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prop:multiplicities-coincide}
     It holds $m(v_Z) = m(Z)$.
 \end{proposition}
 
@@ -540,7 +540,7 @@ Now we can finally prove Proposition~\ref{prop:constructing_models}~\ref{prop:co
     if $E \notin \E$, then $E$ is some $Z_i$ and $\deg \LL|_E \geq \deg \OO_\X(D_i)|_{Z_i} > 0$, and hence \(\LL|_E \not\simeq \OO_E\).
 \end{proof}
 
-\begin{figure}[h] \label{fig:illustration-of-proof-of-prop-constructing-models}
+\begin{figure}[h!] \label{fig:illustration-of-proof-of-prop-constructing-models}
     \centering
     \tikzfig{figures/fig1}
     \caption{Illustration of the proof of Proposition \ref{prop:constructing_models}~\ref{prop:constructing_models_ii}}
@@ -648,4 +648,48 @@ field $K$.
 
 \begin{proof}
     Since $\X$ is normal, there are no embedded points in $\X_s$ by Lemma~\ref{lem:conditions-for-normality}.
+    Since $\X_s$ has dimension one, it is reduced if and only if $\X_s$ is reduced in codimension zero
+    which in turn is the case if $\OO_{\X_s, \eta}$ is a field for every generic point $\eta \in \X$. \\
+    For the second equivalence recall that according to Proposition~\ref{prop:multiplicities-coincide},
+    for any generic point $\eta\in \X_s$ and $Z = \overline{\lbrace\eta\rbrace}$ it holds
+    \begin{align}
+        [\Gamma_{v_Z}: \Gamma_K] = \length \OO_{\X_s, \eta}.
+    \end{align}
+    This implies that $\OO_{\X_s, \eta}$ is a field if and only $v_Z$ is weakly ramified for all $v_Z \in V(\X)$.
 \end{proof}
+
+\begin{example}[Curve with reduced special fibre]
+    Let $K = \QQ_3$ and consider the curve
+    \begin{align}
+        X: \, y^3 = 3x^2 + 1.
+    \end{align}
+    The equation is already defined over $\OK = \ZZ_3$, i.e.\ we can define a model with the same equation.
+    The reduction $\X_s/\FF_3$ is given by $0 = \bar{y}^3 - 1 = (\bar{y} - 1)^3$ which means $\X_s$ is not reduced. \\
+    The irreducible component is given by $Z: \, y-1$; denote the corresponding valuation by $v$.
+    For $z \coloneqq y - 1$ we have
+    \begin{align*}
+        3x^2 &= y^3 - 1 \\
+            &= (z+1)^3 - 1 \\
+            &= z^3 + 3z^2 + 3z,
+    \end{align*}
+    where the right hand side is an Eisenstein polynomial.
+    This results $v(z) = \frac{1}{3}v_G(3x^2) = \frac{1}{3} \notin \ZZ = \Gamma_K$.
+    Let us extend the ground field to $L = \QQ_3[\theta]$ where $\theta^3 - 3 = 0$ and apply the coordinate transform
+    $(x,y) \mapsto (x_1, 1+ \theta y_1)$.
+    We then obtain a birational curve
+    \begin{align}
+        X_1: \, y_1^3 + \theta^2 y_1^2 + \theta y_1 = x_1^2.
+    \end{align}
+    Since $y_1^3 \equiv x_1^2$ (mod $\theta$), $\X_s$ is reduced.
+    It holds $v_G(\theta y_1) = v_G(y - 1) = \frac{1}{3} = v_L(\theta) \in \Gamma_L$, especially $v_G(y_1) = 0$.
+\end{example}
+
+
+\subsection{Models under Base Field Extensions}\label{subsec:models-under-base-field-extensions}
+
+Let $L|K$ be a finite field extension and let $\X$ be a model of $X$.
+Denote by $\X' \coloneqq (X\times_{\OK} \OL)^\sim$ the normalised base change of $\X$ to $\OL$.
+Let $\eta \in \X_s$ be a generic point and let $\eta' \in \X_s'$ be a generic point lying over $\eta$.
+Since $\X$ (resp. $\X'$) is normal we have that $R \coloneqq \OO_{\X, \eta}$ (resp. $ \coloneqq \OO_{\X', \eta'}$)
+is a discrete valuation ring dominating $\OK$ (resp. $\OL$) by
+Lemma~\ref{lem:conditions-for-normality} (\ref{lem:conditions-for-normality-i}), that is
