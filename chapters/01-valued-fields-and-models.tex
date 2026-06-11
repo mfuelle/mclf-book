@@ -104,11 +104,11 @@ In this section, we assume the valuation $v_K$ to be \textit{normalised}, i.e. $
 \begin{example}
     The \textit{Gauß valuation} on the polynomial ring $K[x]$ is defined as
     \begin{align}
-        v_g: K[x] &\to \hat{\QQ}, \; v_g\left( \sum_i a_i x^{i} \right) = \min_i(v_K(a_i)).
+        v_{\scriptscriptstyle G}: K[x] &\to \hat{\QQ}, \; v_{\scriptscriptstyle G}\left( \sum_i a_i x^{i} \right) = \min_i(v_K(a_i)).
     \end{align}
-    Since $k(v_g) = k(\bar{x})$ (where $\bar{x}$ is the image of $x$ in $k(v_g)$), the Gauß valuation
-    extends naturally and uniquely to $K(x)$, meaning that we have $v_g \in V_\textrm{II}(K(x))$.
-    We will later see that $\lbrace v_g \rbrace$ defines the model $\X = \PP^1(\ZZ_p)$ of $\PP^1(\QQ_p)$.
+    Since $k(v_{\scriptscriptstyle G}) = k(\bar{x})$ (where $\bar{x}$ is the image of $x$ in $k(v_g)$), the Gauß valuation
+    extends naturally and uniquely to $K(x)$, meaning that we have $v_{\scriptscriptstyle G} \in V_\textrm{II}(K(x))$.
+    We will later see that $\lbrace v_{\scriptscriptstyle G} \rbrace$ defines the model $\X = \PP^1(\ZZ_p)$ of $\PP^1(\QQ_p)$.
 \end{example}
 
 Let $\X$ be a model of $X$.
@@ -256,7 +256,7 @@ By the previous lemma, this gives a partial order on the corresponding finite su
     $Z$ is defined by $\Bar{X}_p:\; y^2 = x^3$, thus $Z = \X_s$ and $V(\X) = \lbrace v_Z\rbrace$. \\
     We want to describe $v_Z$ as
     \begin{align*}
-        v_Z|_{F_X} = v_g
+        v_Z|_{F_X} = v_{\scriptscriptstyle G}
     \end{align*}
     with respect to the $x$-coordinate.
     Using Lemma~\ref{lem:conditions-for-normality}, we see that $v_Z(p) = 1$
@@ -598,14 +598,14 @@ Now we can finally prove Proposition~\ref{prop:constructing_models}~\ref{prop:co
 \end{remark}
 
 
-\section{Permament Models}\label{sec:permament-models}
+\section{Permanent Models}\label{sec:permament-models}
 
 We want to understand the behaviour of models under base change with respect to an extension of the base field.
-Usually, $L/K$ will denote a finite field extension.
+Usually, $L|K$ will denote a finite field extension.
 Since $v_K$ is Henselian, it has a unique extension to $v_L$ to $L$, and then $(L,v_L)$ also satisfies Assumption \ref{ass:v_K}.
 Given a model $\X$ of $X$, we ask ourselves whether the base change $\X\times_{\OO_K}\OO_L$ is again a model of $X_L \coloneqq X\times_K L$.
 Well, almost: all properties required of a model from Definition \ref{def:model} hold except possibly normality.
-We obtain a model of $X_L$, called the {\em normalized base change} of $\X$ relative to $L/K$, by normalizing $\X\times_{\OO_K}\OO_L$.\footnote{
+We obtain a model of $X_L$, called the {\em normalised base change} of $\X$ relative to $L|K$, by normalizing $\X\times_{\OO_K}\OO_L$.\footnote{
     Here we use the fact that Assumption \ref{ass:v_K} implies that $\OO_K$ is an \emph{excellent} ring.
     It follows that $\X\times_{\OO_K}\OO_L$ is an excellent scheme, and therefore its normalization is a finite morphism.
     See \cite[Chapter 8, in particular Theorem 8.2.39 (d)]{Liu}.
