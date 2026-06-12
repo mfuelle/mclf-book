@@ -250,17 +250,19 @@ By the previous lemma, this gives a partial order on the corresponding finite su
     \begin{align*}
         \mathcal{X} = \Proj \ZZ_p[X,Y,Z]/(Y^2 Z - X^3 - pXZ^2)
     \end{align*}
-    of the elliptic curve $X:\; y^2 = x^3 +px$ defined over $\QQ_p$.
+    of the elliptic curve $X: y^2 = x^3 +px$ defined over $\QQ_p$.
     We have already checked that it is a model.
-    Let $Z$ be the irreducible component in $\X_s$ containing the generic point $\xi$ and denote the corresponding valuation by $v_Z$.
-    $Z$ is defined by $\Bar{X}_p:\; y^2 = x^3$, thus $Z = \X_s$ and $V(\X) = \lbrace v_Z\rbrace$. \\
-    We want to describe $v_Z$ as
-    \begin{align*}
-        v_Z|_{F_X} = v_{\scriptscriptstyle G}
-    \end{align*}
-    with respect to the $x$-coordinate.
-    Using Lemma~\ref{lem:conditions-for-normality}, we see that $v_Z(p) = 1$
-    and $v_Z(x) = 0$, since the horizontal divisor on $x = 0$ intersects $\Bar{X}_p$ at a unique point
+    Let $Z$ be the irreducible component in $\X_s$ containing the generic point $\eta$ and denote the corresponding valuation by $v_Z$.
+    We have
+    \begin{align}
+        Z = \Proj{\FF_p[X,Y,Z]/(Y^2Z - X^3)},
+    \end{align} thus $Z = \X_s$ and $V(\X) = \lbrace v_Z\rbrace$. $\eta$ corresponds to the ideal $(p, Y^2Z - X^3)$. \\
+    $p$ is a uniformising parameter of $\OO_{\X, \eta}$, thus $v_Z(p) = 1$ and since $x\notin \m_\eta = (p)$, $v_Z(x)=1$.
+    Hence, on the function field $F_X = \QQ_p(x)[y]/(y^2 - x^3 - px)$, $v_Z$ is given by 
+    \begin{align}
+        v_Z(f) = \min_{i,j}v_p(a_{i,j}) \quad \text{for } f = \sum_{i,j}a_{i,j}x^i y^j.
+    \end{align}
+    In particular $v_Z|_{\QQ_p(x)} = v_{\scriptscriptstyle G}$.
 \end{example}
 
 
