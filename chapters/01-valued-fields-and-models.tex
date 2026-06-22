@@ -106,7 +106,7 @@ In this section, we assume the valuation $v_K$ to be \textit{normalised}, i.e. $
     \begin{align}
         v_{\scriptscriptstyle G}: K[x] &\to \hat{\QQ}, \; v_{\scriptscriptstyle G}\left( \sum_i a_i x^{i} \right) = \min_i(v_K(a_i)).
     \end{align}
-    Since $k(v_{\scriptscriptstyle G}) = k(\bar{x})$ (where $\bar{x}$ is the image of $x$ in $k(v_g)$), the Gauß valuation
+    Since $k(v_{\scriptscriptstyle G}) = k(\bar{x})$ (where $\bar{x}$ is the image of $x$ in $k(v_{\scriptscriptstyle G})$), the Gauß valuation
     extends naturally and uniquely to $K(x)$, meaning that we have $v_{\scriptscriptstyle G} \in V_\textrm{II}(K(x))$.
     We will later see that $\lbrace v_{\scriptscriptstyle G} \rbrace$ defines the model $\X = \PP^1(\ZZ_p)$ of $\PP^1(\QQ_p)$.
 \end{example}
@@ -257,7 +257,7 @@ By the previous lemma, this gives a partial order on the corresponding finite su
     \begin{align}
         Z = \Proj{\FF_p[X,Y,Z]/(Y^2Z - X^3)},
     \end{align} thus $Z = \X_s$ and $V(\X) = \lbrace v_Z\rbrace$. $\eta$ corresponds to the ideal $(p, Y^2Z - X^3)$. \\
-    $p$ is a uniformising parameter of $\OO_{\X, \eta}$, thus $v_Z(p) = 1$ and since $x\notin \m_\eta = (p)$, $v_Z(x)=1$.
+    $p$ is a uniformising parameter of $\OO_{\X, \eta}$, thus $v_Z(p) = 1$ and since $x\notin \m_\eta = (p)$, $v_Z(x)=0$.
     Hence, on the function field $F_X = \QQ_p(x)[y]/(y^2 - x^3 - px)$, $v_Z$ is given by 
     \begin{align}
         v_Z(f) = \min_{i,j}v_p(a_{i,j}) \quad \text{for } f = \sum_{i,j}a_{i,j}x^i y^j.
@@ -628,11 +628,11 @@ We have the following theorem about permanence:
                 \item the special fiber $\X_s$ of $\X$ is reduced,
                 \item all $v\in V(\X)$ are \emph{weakly ramified} over $v_K$, i.e.\ $v$ and $v_K$ have the same value group.
             \end{enumerate}
-        \item Given a model $\X$, there exists a finite extension $L/K$ such that the normalized base change of $\X$ relative to $L|K$ is permanent.
+        \item Given a model $\X$, there exists a finite extension $L|K$ such that the normalized base change of $\X$ relative to $L|K$ is permanent.
     \end{enumerate}
 \end{theorem}
 
-In Subsection \ref{subsec:models-with-reduced-special-fibre}, we will give a proof of Part (i).
+In Subsection \ref{subsec:models-with-reduced-special-fibre}, we will give a proof of Part (i), see Corollary \ref{cor:permanence-part-i}.
 In Subsection \ref{subsec:models-under-base-field-extensions}, we will prove Part (ii) in the special case where all mulitplicities of $\X_s$
 are prime to the characteristic of the residue field $k$. \textcolor{red}{TBD.}
 In the last two sections of the chapter, we see proofs of Part (ii) in other important special cases.
@@ -691,7 +691,7 @@ field $K$.
         \item We consider Example \textrm{III}.9.8.4 from \cite{Hartshorne} of a pre-model of a smooth curve with embedded point on the special fibre.
             Let $C$ be the curve in $\PP^3(\QQ_p) = \Proj{\QQ_p[X,Y,Z,W]}$, which is given by the ideal 
             \begin{align}
-                I = (p^2(x+1) - z^2, px(x+1) - yz, xz - py, y^2 - x^2(x+1))
+                I = \left(p^2(x+1) - z^2, px(x+1) - yz, xz - py, y^2 - x^2(x+1) \right)
             \end{align}
             on the affine chart $W \neq 0$.
             $p$ is no zero divisor in $\ZZ_p[x,y,z]/I$, thus the projective scheme $\mathcal{C}/\ZZ_p$ defined by $I$
@@ -707,7 +707,7 @@ field $K$.
     \end{enumerate}
 \end{example}
 
-\begin{proposition}[{\cite[Proposition 2.3]{ArzdorfWewers}}]
+\begin{proposition}[{\cite[Proposition 2.3]{ArzdorfWewers}}] \label{prop:reducedness-implies-permanence}
     If $\X_s$ is reduced, then $\X$ is permanent.
 \end{proposition}
 
@@ -747,6 +747,16 @@ field $K$.
     \end{align}
     This implies that $\OO_{\X_s, \eta}$ is a field if and only $v_Z$ is weakly ramified for all $v_Z \in V(\X)$.
 \end{proof}
+
+\begin{corollary} \label{cor:permanence-part-i}
+    Part (i) of Theorem \ref{thm:permanence} holds.
+\end{corollary}
+
+\begin{proof}
+    The equivalence (b) $\iff$ (c) follows from Proposition \ref{prop:criterion-reducedness}.
+    The implication (b) $\Rightarrow$ (a) is Proposition \ref{prop:reducedness-implies-permanence}, the other direction follows from the definition.
+\end{proof}
+
 
 \begin{example}[Curve with reduced special fibre]
     Let $K = \QQ_3$ and consider the curve
@@ -888,8 +898,10 @@ What are the extensions of $v_K$ to an (arbitrary) pseudovaluation $v$ on the po
 How can we describe such pseudovaluation explicitly?
 These results have been applied to the problem of constructing models of curves in J.~Rüth's thesis, \cite{Rueth}. 
 In this section, we give a brief overview.
-\textcolor{red}{We follow [Kunzweiler, Wewers]}\\
 We assume $K$ to be algebraically closed.
+
+
+\subsection{Basic Definitions}
 
 \begin{definition} \label{def:pseudo-valuation}
     We call $v: K[x]: \to \hat{\RR}$ a pseudovaluation if $v(1) = 0$ and
@@ -908,7 +920,7 @@ We assume $K$ to be algebraically closed.
                 \bar{v}: K[x]/\p_v \to \hat{\QQ}.
             \end{align}
             If $\p_v = (0)$, then $v=\bar{v}$ is a valuation in the usual sense.
-        \item Let $L|K$ be a finite field extension with minimal polynomial $\varphi \in K[x]$.
+        \item Let $L|K$ be a finite field extension \textcolor{red}{[separable?]} with minimal polynomial $\varphi \in K[x]$.
             Then we have a one-to-one correspondence between the valuations $v_L: L \to \hat{\RR}$ extending $v_K$ and 
             and the pseudovaluations $v: K[x] \to \hat{\RR}$ with $v(\varphi)=\infty$.
             It is given by the mutually inverse maps
@@ -947,7 +959,7 @@ For the valuations in $V(K[x])$, there is a partial order: we say that $v \leq v
         \item The polynomial $f$ is said to \textit{$v$-divide} $g$ (written as $f\, |_v\, g$) if $f \sim_v fh$ for some $h \in K[x]$.
             It is called \textit{$v$-irreducible} if $f\, |_v\, gh$ implies $f\, |_v\, g$ or $f\, |_v\, h$,
             and \textit{$v$-minimal} if $f\, |_v\, g$ implies $\deg f < \deg g$.
-        \item A polynomial $\phi \in K[x]$ is called a \textit{key polynomial} for $v$ is $\phi$ is monic. integral, $v$-irreducible and $v$-minimal.
+        \item A polynomial $\phi \in K[x]$ is called a \textit{key polynomial} for $v$ is $\phi$ is monic, integral, $v$-irreducible and $v$-minimal.
     \end{enumerate}
 \end{definition}
 
@@ -970,6 +982,69 @@ with $\deg f_i < \deg \phi$. Then let
     v'(f) \coloneqq \min_i(v(f_i) + i\cdot \lambda).
 \end{align}
 
+It holds that $v\leq v'$ and $v < v'$ if and only if $v(\phi) < \lambda$.
+
 \begin{definition}
-    The MacLane pseudovaluation defined in (\refeq{eq:def-augmentation}) is called the \textit{augmentation} of $v$ with respect to $(\phi,\lambda)$.
+    The MacLane pseudovaluation $v'$ defined in (\refeq{eq:def-augmentation}) is called the \textit{augmentation} of $v$ with respect to $(\phi,\lambda)$.
+    If $v < v'$, $v'$ is called a \textit{proper augmentation}.
 \end{definition}
+
+\begin{definition}
+    A MacLane pseudovaluation $v$ is called \textit{inductive} if there exists a chain of MacLane pseudovaluations
+    \begin{align}
+        v_{\scriptscriptstyle G} = v_0 \leq v_1 \leq \cdots \leq v_n = v,
+    \end{align}
+    such that $v_i$ is a proper augmentation of $v_{i-1}$ for $i=1,\dots, n$.
+    We call $v_0,\dots,v_n$ the \textit{augmentation chain} representing $v$ and write \begin{align}
+        v = [v_0,v_1(\phi_1) = \lambda_1,\dots, v_n(\phi_n) = \lambda_n].
+    \end{align}
+    Here it is understood $v_0 = v_{\scriptscriptstyle G}$, $v_n = v$, that $\phi_i$ is a key polynomial for $v_{i-1}$, $\lambda_i > v_{i-1}(\phi_i)$
+    and that $v_i = [v_{i-1}, v_i(\phi_i) = \lambda_i]$. 
+    Also, $\lambda_i \neq \infty$ for $i < n$.
+    We say that the augmentation chain $v_0,\dots,v_n$ is \textit{minimal} if
+    \begin{align}
+        \deg \phi_i < \cdots < \deg \phi_n.
+    \end{align}
+\end{definition}
+
+\begin{theorem}[{\cite[Theorem 8.1 and Theorem 15.3]{MacLane}}]
+    Let $v \in V(K[x])^*$.
+    Then there exists a unique minimal augmentation chain representing $v$.
+    In particular, $v$ is inductive.
+\end{theorem}
+
+
+\subsection{Discs, Discoids and Inductive Valuations}
+
+\begin{definition}
+    \begin{enumerate}[(i)]
+        \item Let $\alpha \in K$ and let $\lambda \in \hat{\QQ}$. 
+            Then
+                \begin{align}
+                    D(\alpha, \lambda) \coloneqq \lbrace x \in K:\, v_K(x - \alpha) \geq \lambda\rbrace
+                \end{align}
+            is the \textit{(closed) disc} with centre $\alpha$ and radius $\lambda$.
+        \item Let $\phi \in K[x]$ be a monic irreducible polynomial and let $\lambda \in \hat{\QQ}$.
+            The set 
+            \begin{align}
+                D(\phi, \lambda) \coloneqq \lbrace x \in K:\, v_K(\phi(x)) \geq \lambda \rbrace
+            \end{align}
+            is called the \textit{discoid} with centre $\phi$ and radius $\lambda$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Any disc with centre in $K$ is a discoid.
+    Coversely, if $\phi = x - \alpha$ then $D(\phi, \lambda)$ coincides with the disc $D(\alpha, \lambda)$.
+    For arbitrary non-constant $\phi$, we have the following generalisation:
+    Let $\alpha_1,\dots,\alpha_n$ be the (pairwise distinct) roots of $\phi \in K[x]$
+    and let $\mu_1,\dots,\mu_n \in \hat{\QQ}$ be minimal\footnote{
+        Our definition of discs imply that discs with large radius are smaller than those with small radius.
+        For instance, the disc with centre $0\in K$ and radius $0$ is rather big, as it consists of all integral elements.
+    } such that $D(\alpha_i,\mu_i) \subset D(\phi,\lambda)$.
+    Then
+    \begin{align}
+        D(\phi,\lambda) = \bigcup_{i=1}^n D(\alpha_i,\mu_i),
+    \end{align}
+    see \cite[Lemma 4.43]{Rueth}.
+\end{remark}
