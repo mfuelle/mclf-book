@@ -129,7 +129,7 @@ that is a smooth, projective and absolutely irreducible curve over $K$.
             On the affine chart $Z \neq 0$ we have $\X_s: 0 = y^3 - x^3 - 1 = (x - y - 1)^3$ over $\FF_3$.
             However, $\X$ is normal and thus a model of $X$ since
             \begin{align*}
-                F(x,y) &= G(x,y)^r H_1(x,y) + \pi^3 H_2(x,y) \\
+                F(x,y) &= G(x,y)^r H_1(x,y) + 3 H_2(x,y) \\
                     &\coloneqq (x-y-1)^3 + 3(-x^2y + xy^2 + x^2 - 2xy + y^2 - y),
             \end{align*}
             i.e. $r=3$ but $e=1$ and $\bar{H}_2(x,y) \notin \bar{G}(x,y)\FF_3[x,y]$.
@@ -268,8 +268,8 @@ We follow \cite[Chapter 3]{Rueth}
 \begin{proof}
     If $V(\X) \subset V(\X')$, then for every valuation $v_Z \in V(\X)$ corresponding to an irreducible component $Z\subset \X_s$ with generic point $\xi$,
     there is an irreducible component $Z' \subset \X'_s$ with generic point $\xi'$, such that $\OO_{\X,\xi} = \OO_{\X',\xi'} \subset F_X$.
-    Together with the identification $\X_g = X = \X'_g$, this induces a birational map $\X' \dbkarow \X$ (cf. for example \cite[Lemma 29.50.2.]{Stacks}).
-    By \cite[Theorem 8.3.20]{Liu}, this map is a morphism.
+    Together with the identification $\X_g = X = \X'_g$, this induces a birational map $\X' \dashrightarrow \X$ (cf. for example \cite[Lemma 29.50.2.]{Stacks}).
+    By \cite[Theorem 8.3.20]{Liu}, this map is a morphism. Since it identifies $\X_g$ and $\X'_g$, it is a modification.
 \end{proof}
 
 
@@ -365,7 +365,7 @@ to obtain a new model that induces all valuations in $V$, but possibly more.
 We then apply part (\ref{prop:constructing_models_ii}) to construct a model that induces exactly the valuations in $V$.
 
 
-\subsection{Proof of the First Part of Theorem~\ref{thm:bijectionModelsAndComponents}}\label{subsec:proof-of-the-first-part}
+\subsection{Proof of the First Part of Proposition~\ref{prop:constructing_models}}\label{subsec:proof-of-the-first-part}
 
 We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
 
@@ -380,7 +380,7 @@ We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
     \]
     Here, the left map is induced by the inclusion $\OO_v \hookrightarrow \Frac \OO_v = F_X$,
     and the right map comes from the identification of $X$ with the special fibre $\X_s$.
-    Specifically, it is the canonical map $\Spec F_X \cong \Spec \OO_{\X, \xi} \to \X$, where $\xi$ is the generic point of $\X$.
+    Specifically, it is the canonical map $\Spec F_X \cong \Spec \OO_{\X, \eta} \to \X$, where $\eta$ is the generic point of $X$.
 \end{definition}
 
 \begin{lemma}
@@ -406,8 +406,8 @@ We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
 
 \begin{proof}
     Assume $v \in V(\X)$.
-    Then $v$ is induced by a generic point $\eta \in \X_s$ on the special fibre.
-    The canonical morphism $\Spec \OO_{\X, \eta} \to \X$ shows that $v$ has centre $\eta$,  which is indeed a point of codimension one.
+    Then $v$ is induced by a generic point $\xi \in \X_s$ on the special fibre.
+    The canonical morphism $\Spec \OO_{\X, \xi} \to \X$ shows that $v$ has centre $\xi$,  which is indeed a point of codimension one.
     Conversely, suppose $v \in V_\textrm{II}(F_X)$ has center $x \in \X$ of codimension one.
     The morphism $\Spec \OO_v \to \X$ uniquely factors through $\Spec \OO_v \to \Spec \OO_{\X, x}$, so $\OO_v$ dominates $\OO_{\X, x}$.
     Since these are both valuation rings with common fraction field $K$, it follows that they are in fact equal.
@@ -415,7 +415,7 @@ We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
 \end{proof}
 
 \begin{lemma}[{{\cite[3.12, 3.13]{Rueth}}}] \label{lem:condition_induced}
-    Let $x \in \X$ be the centre of $v$, and let $f \in \OO_v^* \subset F_X$ be such that the reduction $\overline{f} \in k(v)$ is transcendental over $k$.
+    Let $x \in \X$ be the centre of $v$, and let $f \in \OO_v^* \subset F_X$ be such that the reduction $\bar{f} \in k(v)$ is transcendental over $k$.
     Then:
     \begin{enumerate}[(a)]
     \item If $f \in \OO_{\X,x}$, then $v \in V(\X)$ \label{lem:condition_induced_i}
@@ -428,20 +428,20 @@ We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
     \begin{enumerate}[(a)]
     \item By Lemma~\ref{lem:codim1}, it suffices to show that $x$ is a point of codimension one.
     Choose an open affine set $\Spec A = U \subset \X$ such that $x \in U$ and $f \in A$.
-    Denote by $\p \subset A$ the prime ideal corresponding to $x$.
+    Denote by $\p < A$ the prime ideal corresponding to $x$.
     Since $v$ is non-trivial, the center $x$ is not the generic point of $\X$, and so the codimension is not zero.
     If the dimension of $A/\p$ is at least one, then the inequality
     \[
-        \dim (A_\p) + \dim (A/\p) \leq \dim (A) = 2
+        \dim{}(A_\p) + \dim{}(A/\p) \leq \dim{}(A) = 2
     \]
     implies
     \[
-        \codim(\overline{\{x\}}, \X) = \dim (A_\p) \leq 2 - \dim(A/\p) \leq 2 - 1 = 1,
+        \codim(\overline{\{x\}}, \X) = \dim{}(A_\p) \leq 2 - \dim{}(A/\p) \leq 2 - 1 = 1,
     \]
     and hence equals one.
     Thus, it suffices to show that $A/\p$ is not a field.
     If $A/\p$ were a field, it would be a finite extension
-    of $k$, but this is impossible since $\overline{f} \in A/\p \subset k(v)$ is transcendental over $k$.
+    of $k$, but this is impossible since $\bar{f} \in A/\p \subset k(v)$ is transcendental over $k$.
     \item It suffices to show, using (\ref{lem:condition_induced_i}), that $f \in \OO_{\X, x}$.
     Let $P = V(f^{-1})$ and $Z = V(f)$ be the sets of poles and zeros of $f$, respectively.
     Then the rational map $\X \dashrightarrow \PP^1(\OK )$ is obtained by gluing the morphisms
@@ -480,10 +480,10 @@ We fix a model $\X$ of $X$ and a type II valuation $v \in V_\textrm{II}(F_X)$.
     \end{enumerate}
 \end{proof}
 
-We can now finish the proof of Proposition \ref{prop:constructing_models} \ref{prop:constructing_models_i}.
+We can now finish the proof of Proposition \ref{prop:constructing_models} (\ref{prop:constructing_models_i}).
 
-\begin{proof}[Proof of Proposition \ref{prop:constructing_models} \ref{prop:constructing_models_i}]
-    Let $f \in \OO_v^\times \subset F_X$ be such that the reduction $\overline{f} \in k(v)$ is transcendental over $k$.
+\begin{proof}[Proof of Proposition \ref{prop:constructing_models} (\ref{prop:constructing_models_i})]
+    Let $f \in \OO_v^\times \subset F_X$ be such that the reduction $\bar{f} \in k(v)$ is transcendental over $k$.
     We also write $f \colon \X \dashrightarrow \PP^1(\OK )$ for the rational map induced by $f$, and let $U$ be its domain of definition.
     Define $\Gamma_f \subset \X \times_{\OK } \PP^1(\OK )$ to be the graph of $f$.
     Recall that it is defined to be the closure of the graph $f|_U$ in $\X \times_{\OK } \PP^1(\OK ) \supset U \times_{\OK } \PP^1(\OK )$.
@@ -500,16 +500,16 @@ We can now finish the proof of Proposition \ref{prop:constructing_models} \ref{p
     The second projection induces a morphism $\Gamma_f \to \PP^1(\OK )$ which extends $f \colon \Gamma_f \dashrightarrow \PP^1(\OK )$.
     Let $\X' \to \Gamma_f$ denote the normalization of $\Gamma_f$.
     This gives a model of $\X'$ for which $f \colon \X' \to \PP^1(\OK )$ is a morphism.
-    By Lemma~\ref{lem:condition_induced}~\ref{lem:condition_induced_ii}, this implies that $v \in V(\X')$.
+    By Lemma~\ref{lem:condition_induced}~(\ref{lem:condition_induced_ii}), this implies that $v \in V(\X')$.
 \end{proof}
 
 
-\subsection{Proof of the Second Part of Theorem~\ref{thm:bijectionModelsAndComponents}}\label{subsec:proof-of-the-second-part}
+\subsection{Proof of the Second Part of Proposition~\ref{prop:constructing_models}}\label{subsec:proof-of-the-second-part}
 We fix a model $\X$ of $X$ and a nonempty subset $V \subset V(\X)$.
 Denote by $\EE$ the set of irreducible (integral) components of $\X_s$ that induce the valuations in $V(\X)\setminus V$.
 
 \begin{definition}
-    A model $\X'$ together with a modification $\varphi \colon \X \to \X'$ such that for every integral vertical curve $E$ on $\X$,
+    A model $\X'$ together with a modification $\varphi \colon \X \to \X'$ such that for every integral vertical curve $E$ on $\X_s$,
     the set $\varphi(E)$ is a point if and only if $E \in \EE$ is called a \textit{contraction} of the $E \in \EE$.
 \end{definition}
 
@@ -548,7 +548,7 @@ Once this is done, the proof is complete, since for the contraction $\varphi \co
     This is an isomorphism on the generic fibre because $\LL|_{\X_g}$ is very ample.
     In particular, $f \colon X \to Z$ is birational.
     Denote by $\pi \colon \X' \to Z$ the normalization morphism.
-    As $\X$ is normal, $f$ uniquely factors into $\varphi \colon \X \to \X'$ followed by $\pi \colon \X' \to Z$.
+    As $\X$ is normal, $f$ factors uniquely into $\varphi \colon \X \to \X'$ followed by $\pi \colon \X' \to Z$.
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAC0QBfU9TXfIRRkADFVqMWbADrSAGgHJuvEBmx4CREeXH1mrRCFlzu4mFADm8IqABmAJwgBbJACZqOCEm0T9bWyDUDHQARjAMAAr8GkIg9lgWABY4ynaOLojuIJ5IZL5ShrL09miJWKkgDs65Hl6IPnoFRtJo5VwUXEA
         \begin{tikzcd}
@@ -584,7 +584,7 @@ To construct such a divisor, it is important that the ring $\OK $ is complete, w
     Let $A$ be a Noetherian local ring with maximal ideal $\m$ and residue field $k \coloneqq A/\m$.
     We say that $A$ is Henselian if one of the following equivalent conditions is fulfilled:
     \begin{itemize}
-        \item Hensel's Lemma holds: For every monic $f \in A[T]$, and every simple root $a_0 \in k$ of $\overline{f} \in k[T]$,
+        \item Hensel's Lemma holds: For every monic $f \in A[T]$, and every simple root $a_0 \in k$ of $\bar{f} \in k[T]$,
             there exists a lift $a \in A$ (so $\overline{a} = a_0$) such that $f(a) = 0$.
         \item Every finite $A$-algebra is a direct sum of local $A$-algebras.
     \end{itemize}
@@ -600,9 +600,9 @@ To construct such a divisor, it is important that the ring $\OK $ is complete, w
 
 \begin{proof}
     \begin{enumerate}[(a)]
-        \item Let $\m_x$ be the maximal ideal of $\OO_{\X,x}$ and denote by $\pi$ an uniformizer of $\OO_K$.
+        \item Let $\m_x$ be the maximal ideal of $\OO_{\X,x}$ and denote by $\pi$ a uniformising parameter of $\OO_K$.
             Let $ \p_1, \dots, \p_n $ be the prime ideals of $\OO_{\X,x}$ that are minimal among those containing $\pi \OO_{\X,x}$.
-            As $\dim \OO_{\X,x} = 2$ (\cite[Proposition 8.3.4]{Liu}), Krull's principal ideal theorem implies that $\m_x \not= \p_i$.
+            As $\dim{}\OO_{\X,x} = 2$ (\cite[Proposition 8.3.4]{Liu}), Krull's principal ideal theorem implies that $\m_x \not= \p_i$.
             There therefore exists an
             \[
                 f \in \m_x \setminus (\cup_i \p_i).
@@ -615,8 +615,8 @@ To construct such a divisor, it is important that the ring $\OK $ is complete, w
             Then $\Delta$ is an irreducible horizontal divisor passing through $x$. \label{lem:proof:exist_div_i}
         \item Let $E \coloneqq V(g)$ and let $W$ be as in~\ref{lem:proof:exist_div_i}.
             Then $E$ can be seen as an effective Cartier divisor on $W$.
-            Moreover, $E \to \Spec \OO_K$ is quasi-projective and quasi-finite because $\dim E_s < \dim \X_s = 1$.
-            By a corollary of Zariski's Main theorem (\cite[Corollary 4.4.8]{Liu}), there exists an affine open neighborhood
+            Moreover, $E \to \Spec \OO_K$ is quasi-projective and quasi-finite because $\dim{}E_s < \dim{}\X_s = 1$.
+            By a corollary of Zariski's Main Theorem (\cite[Corollary 4.4.8]{Liu}), there exists an affine open neighborhood
             $U$ of $x$ such that $E \cap U$ is an open subscheme of a scheme $Z$ that is finite over $\Spec \OO_K$.
 
             \begin{center}
@@ -644,11 +644,11 @@ To construct such a divisor, it is important that the ring $\OK $ is complete, w
     \end{enumerate}
 \end{proof}
 
-Now we can finally prove Proposition~\ref{prop:constructing_models}~\ref{prop:constructing_models_ii}.
+Now we can finally prove Proposition~\ref{prop:constructing_models}~(\ref{prop:constructing_models_ii}).
 
 \begin{proof}[Proof of Proposition \ref{prop:constructing_models}~(\ref{prop:constructing_models_ii})]
     Let $Z_1, \dots, Z_n$ be the irreducible components of $\X_s$ that induce the valuations in $V \subset V(\X)$.
-    By Lemma~\ref{lem:exist_div}~\ref{lem:exist_div_ii}, there exists an effective horizontal Cartier divisor $D_i$
+    By Lemma~\ref{lem:exist_div}~(\ref{lem:exist_div_ii}), there exists an effective horizontal Cartier divisor $D_i$
     such that $\X_s \cap \Supp D_i$ is a point of $Z_i$ that belongs to none of the components of $\EE$.
     Let $D = \sum_{i=1}^n D_i$.
     By virtue of Lemma~\ref{lem:global_sec}, if necessary replacing $D$ by a multiple, we can even suppose that
@@ -666,23 +666,23 @@ Now we can finally prove Proposition~\ref{prop:constructing_models}~\ref{prop:co
 \end{figure}
 
 \begin{remark}
-    The proof of Proposition~\ref{prop:constructing_models}~\ref{prop:constructing_models_ii} shows that actually all models
+    The proof of Proposition~\ref{prop:constructing_models}~(\ref{prop:constructing_models_ii}) shows that actually all models
     $\X$ of $X$ are projective.
     Indeed one just has to choose $V = V(\X)$ in the proof to obtain an effective Cartier divisor $D$ which meets
-    all the irreducible components of the fiber $\X_s$.
+    all the irreducible components of the fibre $\X_s$.
     Since $\X_s$ is a projective curve (\cite[Exercise 7.5.4]{Liu}), $\OO_\X(D)|_{\X_s}$ is ample (\cite[Proposition 7.5.5]{Liu}).
     It follows from \cite[Corollary 5.3.24]{Liu} that $\OO_\X(D)$ is ample.
     So $\X \to \Spec \OO_K$ is projective (\cite[Proposition 5.3.6]{Liu}).
 \end{remark}
 
 
-\section{Permanent Models}\label{sec:permament-models}
+\section{Base Change}\label{sec:base-change}
 
 We want to understand the behaviour of models under base change with respect to an extension of the base field.
 Usually, $L|K$ will denote a finite field extension.
 Since $v_K$ is Henselian, it has a unique extension to $v_L$ to $L$, and then $(L,v_L)$ also satisfies Assumption \ref{ass:v_K}.
 Given a model $\X$ of $X$, we ask ourselves whether the base change $\X\times_{\OO_K}\OO_L$ is again a model of $X_L \coloneqq X\times_K L$.
-Well, almost: all properties required of a model from Definition \ref{def:model} hold except possibly normality.
+Well, almost: All properties required of a model from Definition \ref{def:model} hold except possibly normality.
 We obtain a model of $X_L$, called the {\em normalised base change} of $\X$ relative to $L|K$, by normalizing $\X\times_{\OO_K}\OO_L$.\footnote{
     Here we use the fact that Assumption \ref{ass:v_K} implies that $\OO_K$ is an \emph{excellent} ring.
     It follows that $\X\times_{\OO_K}\OO_L$ is an excellent scheme, and therefore its normalization is a finite morphism.
@@ -702,16 +702,16 @@ We have the following theorem about permanence:
             \begin{enumerate}[(a)]
                 \item $\X$ is permanent,
                 \item the special fiber $\X_s$ of $\X$ is reduced,
-                \item all $v\in V(\X)$ are \emph{weakly ramified} over $v_K$, i.e.\ $v$ and $v_K$ have the same value group.
+                \item all $v\in V(\X)$ are \emph{weakly unramified} over $v_K$, i.e.\ $v$ and $v_K$ have the same value group.
             \end{enumerate}
-        \item Given a model $\X$, there exists a finite extension $L|K$ such that the normalized base change of $\X$ relative to $L|K$ is permanent.
+        \item Given a model $\X$, there exists a finite extension $L|K$ such that the normalised base change of $\X$ relative to $L|K$ is permanent.
     \end{enumerate}
 \end{theorem}
 
-In Subsection \ref{subsec:models-with-reduced-special-fibre}, we will give a proof of Part (i), see Corollary \ref{cor:permanence-part-i}.
-In Subsection \ref{subsec:models-under-base-field-extensions}, we will prove Part (ii) in the special case where all mulitplicities of $\X_s$
-are prime to the characteristic of the residue field $k$. \textcolor{red}{TBD.}
-In the last two sections of the chapter, we see proofs of Part (ii) in other important special cases.
+In Subsection \ref{subsec:models-with-reduced-special-fibre}, we will give a proof of part (i), see Corollary \ref{cor:permanence-part-i}.
+In Subsection \ref{subsec:models-under-base-field-extensions}, we will prove part (ii) in the special case where all mulitplicities of $\X_s$
+are prime to the characteristic of the residue field $k$ (Lemma \ref{lem:abhyanka}).
+In the next chapter, we see proofs of part (ii) in other important special cases.
 
 \subsection{Models with Reduced Special Fibre}\label{subsec:models-with-reduced-special-fibre}
 
@@ -735,7 +735,7 @@ field $K$.
     \begin{enumerate}[(i)]
         \item The special fibre $\X_s$ has no embedded points, i.e.\ no point $x\in \X_s$ \label{lem:conditions-for-normality-i}
             satisfying $\m_x = \Ann{R}{r}$ for some $r\in R \coloneqq \OO_{\X_s,x}$ (see~\cite[Definition 7.1.6]{Liu}).
-        \item The local ring $\OO_{\X,\eta}$ is a discrete valuation ring for every generic point $\eta \in \X_s$. \label{lem:conditions-for-normality-ii}
+        \item The local ring $\OO_{\X,\xi}$ is a discrete valuation ring for every generic point $\xi \in \X_s$. \label{lem:conditions-for-normality-ii}
     \end{enumerate}
 \end{lemma}
 
@@ -792,13 +792,13 @@ field $K$.
     The special fibre of $\X' \coloneqq \X_{\OL} = \X \times_{\OK} \OL$ is $\X'_s := \X_s \times_k l$,
     which is reduced since $k$ is perfect by assumption.
     This means $\X'_s$ satisfies condition (ii) from Lemma~\ref{lem:conditions-for-normality}. \\
-    For condition (i) let $\eta \in \X'_s$ be any generic point.
-    The chalk $\OO_{\X', \eta}$ then is a Noetherian local domain of dimension $1$ and it holds
+    For condition (i) let $\xi \in \X'_s$ be any generic point.
+    The stalk $\OO_{\X', \xi}$ then is a Noetherian local domain of dimension $1$ and it holds
     \begin{align}
-        \OO_{\X'_s, \eta} = \OO_{\X', \eta}/\pi_L\OO_{\X', \eta},
+        \OO_{\X'_s, \xi} = \OO_{\X', \xi}/\pi_L\OO_{\X', \xi},
     \end{align}
     where $\pi_L \in \OL$ is a uniformising parameter.
-    Since $\X'_s$ is reduced, $\pi_L\OO_{\X',\eta}$ is maximal ideal which means that
+    Since $\X'_s$ is reduced, $\pi_L\OO_{\X',\xi}$ is maximal ideal which means that
     condition (i) from Lemma~\ref{lem:conditions-for-normality} is satisfied as well.
     Thus $\X'$ is normal and hence $\X$ is permanent.
 \end{proof}
@@ -807,21 +807,21 @@ field $K$.
     Let $\X$ be a model of $X$, then the following statements are equivalent.
     \begin{enumerate}[(i)]
         \item $\X_s$ is reduced.
-        \item $\OO_{\X_s, \eta}$ is a field for every generic point $\eta \in \X_s$.
-        \item Every $v_Z \in V(\X)$ is weakly ramified.
+        \item $\OO_{\X_s, \xi}$ is a field for every generic point $\eta \in \X_s$.
+        \item Every $v_Z \in V(\X)$ is weakly unramified.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
     Since $\X$ is normal, there are no embedded points in $\X_s$ by Lemma~\ref{lem:conditions-for-normality}.
     Since $\X_s$ has dimension one, it is reduced if and only if $\X_s$ is reduced in codimension zero
-    which in turn is the case if $\OO_{\X_s, \eta}$ is a field for every generic point $\eta \in \X$. \\
+    which in turn is the case if $\OO_{\X_s, \xi}$ is a field for every generic point $\xi \in \X_s$. \\
     For the second equivalence recall that according to Proposition~\ref{prop:multiplicities-coincide},
-    for any generic point $\eta\in \X_s$ and $Z = \overline{\lbrace\eta\rbrace}$ it holds
+    for any generic point $\xi\in \X_s$ and $Z = \overline{\lbrace\eta\rbrace}$ it holds
     \begin{align}
-        [\Gamma_{v_Z}: \Gamma_K] = \length \OO_{\X_s, \eta}.
+        [\Gamma_{v_Z}: \Gamma_K] = \length \OO_{\X_s, \xi}.
     \end{align}
-    This implies that $\OO_{\X_s, \eta}$ is a field if and only $v_Z$ is weakly ramified for all $v_Z \in V(\X)$.
+    This implies that $\OO_{\X_s, \xi}$ is a field if and only $v_Z$ is weakly ramified for all $v_Z \in V(\X)$.
 \end{proof}
 
 \begin{corollary} \label{cor:permanence-part-i}
@@ -835,12 +835,13 @@ field $K$.
 
 
 \begin{example}[Curve with reduced special fibre]
-    Let $K = \QQ_3$ and consider the curve
+    Let $K = \QQ_3$ and consider the projective curve
     \begin{align}
-        X: \, y^3 = 3x^2 + 1.
+        X: \, y^3 = 3x^2 + 1
     \end{align}
-    The equation is already defined over $\OK = \ZZ_3$, i.e.\ we can define a model with the same equation.
-    The reduction $\X_s/\FF_3$ is given by $0 = \bar{y}^3 - 1 = (\bar{y} - 1)^3$ which means $\X_s$ is not reduced. \\
+    over $K$.
+    The equation defines a model $\X$ over $\OK=\ZZ_3$ (cf. Example \ref{ex:model-of-plane-curve}).
+    The reduction $\X_s/\FF_3$ is given by $0 = y^3 - 1 = (y - 1)^3$ which means $\X_s$ is not reduced. \\
     The irreducible component is given by $Z: \, y-1$; denote the corresponding valuation by $v$.
     For $z \coloneqq y - 1$ we have
     \begin{align*}
@@ -849,7 +850,7 @@ field $K$.
             &= z^3 + 3z^2 + 3z,
     \end{align*}
     where the right hand side is an Eisenstein polynomial.
-    This results $v(z) = \frac{1}{3}v_G(3x^2) = \frac{1}{3} \notin \ZZ = \Gamma_K$.
+    This results $v(z) = \frac{1}{3}v_{\scriptscriptstyle G}(3x^2) = \frac{1}{3} \notin \ZZ = \Gamma_K$.
     Let us extend the ground field to $L = \QQ_3[\theta]$ where $\theta^3 - 3 = 0$ and apply the coordinate transformation
     $(x,y) \mapsto (x_1, 1+ \theta y_1)$.
     We then obtain a birational curve
@@ -857,7 +858,7 @@ field $K$.
         X_1: \, y_1^3 + \theta^2 y_1^2 + \theta y_1 = x_1^2.
     \end{align}
     Since $y_1^3 \equiv x_1^2$ (mod $\theta$), $\X_s$ is reduced.
-    It holds $v_G(\theta y_1) = v_G(y - 1) = \frac{1}{3} = v_L(\theta) \in \Gamma_L$, especially $v_G(y_1) = 0$.
+    It holds $v_G(\theta y_1) = v_{\scriptscriptstyle}(y - 1) = \frac{1}{3} = v_L(\theta) \in \Gamma_L$, especially $v_{\scriptscriptstyle G}(y_1) = 0$.
 \end{example}
 
 
@@ -865,8 +866,8 @@ field $K$.
 
 Let $L|K$ be a finite field extension and let $\X$ be a model of $X$.
 Denote by $\X' \coloneqq (X\times_{\OK} \OL)^\sim$ the normalised base change of $\X$ to $\OL$.
-Let $\eta \in \X_s$ be a generic point and let $\eta' \in \X_s'$ be a generic point lying over $\eta$.
-Since $\X$ (resp. $\X'$) is normal we have that $R \coloneqq \OO_{\X, \eta}$ (resp. $ \coloneqq \OO_{\X', \eta'}$)
+Let $\xi \in \X_s$ be a generic point and let $\xi' \in \X_s'$ be a generic point lying over $\xi$.
+Since $\X$ (resp. $\X'$) is normal we have that $R \coloneqq \OO_{\X, \xi}$ (resp. $ \coloneqq \OO_{\X', \xi'}$)
 is a discrete valuation ring dominating $\OK$ (resp. $\OL$) by
 Lemma~\ref{lem:conditions-for-normality} (\ref{lem:conditions-for-normality-i}), that is
 \begin{itemize}
@@ -964,163 +965,3 @@ the generic point of $Z_i \subset \X_s$ which corresponds to $v_i$.
             Thus $[\Gamma_{F_{X_2}}: \Gamma_{L_2}] = 1$.
     \end{enumerate}
 \end{example}
-
-
-\section{MacLane Valuations}
-
-In his seminal work \cite{MacLane}, S.~MacLane considered and essentially solved the following problem.
-Let $v_K$ be a discrete valuation on a field $K$.
-What are the extensions of $v_K$ to an (arbitrary) pseudovaluation $v$ on the polynomial ring $K[x]$?
-How can we describe such pseudovaluation explicitly?
-These results have been applied to the problem of constructing models of curves in J.~Rüth's thesis, \cite{Rueth}. 
-In this section, we give a brief overview.
-We assume $K$ to be algebraically closed.
-
-
-\subsection{Basic Definitions}
-
-\begin{definition} \label{def:pseudo-valuation}
-    We call $v: K[x]: \to \hat{\RR}$ a pseudovaluation if $v(1) = 0$ and
-    \begin{enumerate}[(a)]
-        \item $v(fg) = v(f) + v(g)$,
-        \item $v(f + g) \geq \min\lbrace v(f), v(g) \rbrace$ for all $f,g\in K[x]$.
-    \end{enumerate}
-\end{definition}
-
-\begin{remark}
-    Let $v$ be a pseudovaluation on $K[x]$.
-    \begin{enumerate} [(i)]
-        \item As a consequence of the definition we get that $\p_v \coloneqq v^{-1}(\infty) < K[x]$ is a prime ideal
-            and that $v$ induces a valuation 
-            \begin{align}
-                \bar{v}: K[x]/\p_v \to \hat{\QQ}.
-            \end{align}
-            If $\p_v = (0)$, then $v=\bar{v}$ is a valuation in the usual sense.
-        \item Let $L|K$ be a finite field extension \textcolor{red}{[separable?]} with minimal polynomial $\varphi \in K[x]$.
-            Then we have a one-to-one correspondence between the valuations $v_L: L \to \hat{\RR}$ extending $v_K$ and 
-            and the pseudovaluations $v: K[x] \to \hat{\RR}$ with $v(\varphi)=\infty$.
-            It is given by the mutually inverse maps
-            \begin{align}
-                v_L \mapsto \left( K[x] \twoheadrightarrow L \overset{v}{\to} \hat{\RR} \right)
-            \end{align}
-            and
-            \begin{align}
-                v \mapsto \left(K[x]/\p_v \overset{\bar{v}}{\to} \hat{\RR}\right).
-            \end{align}
-    \end{enumerate}
-\end{remark}
-
-\begin{definition}
-    A pseudovaluation $v: K[x] \to \QQ$ is called a \textit{MacLane pseudovaluation} if the following conditions hold.
-    \begin{enumerate}[(a)]
-        \setcounter{enumi}{2}
-        \item $v|_K = v_K$,
-        \item $v(x) \geq 0$,
-        \item $v$ is discrete, i.e. $v(K[x]) \cap \QQ = \frac{1}{e_v}\ZZ$ for some positive integer $e_v$,
-        \item if $\p_v = (0)$, then the extension $k(v)|k$ has transcendence degree one.
-    \end{enumerate}
-    We denote the set of all MacLane pseudovaluations of $K[x]$ by $V(K[x])^*$ and the subset of MacLane valuations of $K[x]$ by $V(K[x]) \subset V(K[x])^*$.
-\end{definition}
-
-For the valuations in $V(K[x])$, there is a partial order: we say that $v \leq v'$ if and only if $v(f) \leq v'(f)$ for all $f\in K[x]$.
-
-\begin{example}
-    The Gauß valuation $v_{\scriptscriptstyle G} \in V(K[x])^*$ is minimal with respect to that partial order.
-\end{example}
-
-\begin{definition}
-    Let $v\in V(K[x])$ be a MacLane valuation and let $f,g,h \in K[x]$.
-    \begin{enumerate}[(i)]
-        \item We say that $f$ and $g$ are \textit{$v$-equivalent} (written as $f \sim_v g$) if $v(f-g) > v(f) = v(g)$.
-        \item The polynomial $f$ is said to \textit{$v$-divide} $g$ (written as $f\, |_v\, g$) if $f \sim_v fh$ for some $h \in K[x]$.
-            It is called \textit{$v$-irreducible} if $f\, |_v\, gh$ implies $f\, |_v\, g$ or $f\, |_v\, h$,
-            and \textit{$v$-minimal} if $f\, |_v\, g$ implies $\deg f < \deg g$.
-        \item A polynomial $\phi \in K[x]$ is called a \textit{key polynomial} for $v$ is $\phi$ is monic, integral, $v$-irreducible and $v$-minimal.
-    \end{enumerate}
-\end{definition}
-
-\begin{remark}
-    One immediate consequence of these definitions is that any key polynomial $\phi$ for $v$ is irreducible (as an element of $K[x]$).
-\end{remark}
-
-Let $\phi$ be a key polynomial for the a valuation $v \in V(K[x])$ and let $\lambda \in \hat{\QQ}$ with $\lambda \geq v(\phi)$.
-Then we can define a MacLane pseudovaluation 
-\begin{align} \label{eq:def-augmentation}
-    v' = [v, v'(\phi) = \lambda] \in V(K[x])^*
-\end{align}
-as follows.
-Any polynomial $f \in K[x]$ can be written uniquely as 
-\begin{align}
-    f = \sum_i f_i \phi^i
-\end{align}
-with $\deg f_i < \deg \phi$. Then let 
-\begin{align}
-    v'(f) \coloneqq \min_i(v(f_i) + i\cdot \lambda).
-\end{align}
-
-It holds that $v\leq v'$ and $v < v'$ if and only if $v(\phi) < \lambda$.
-
-\begin{definition}
-    The MacLane pseudovaluation $v'$ defined in (\refeq{eq:def-augmentation}) is called the \textit{augmentation} of $v$ with respect to $(\phi,\lambda)$.
-    If $v < v'$, $v'$ is called a \textit{proper augmentation}.
-\end{definition}
-
-\begin{definition}
-    A MacLane pseudovaluation $v$ is called \textit{inductive} if there exists a chain of MacLane pseudovaluations
-    \begin{align}
-        v_{\scriptscriptstyle G} = v_0 \leq v_1 \leq \cdots \leq v_n = v,
-    \end{align}
-    such that $v_i$ is a proper augmentation of $v_{i-1}$ for $i=1,\dots, n$.
-    We call $v_0,\dots,v_n$ the \textit{augmentation chain} representing $v$ and write \begin{align}
-        v = [v_0,v_1(\phi_1) = \lambda_1,\dots, v_n(\phi_n) = \lambda_n].
-    \end{align}
-    Here it is understood $v_0 = v_{\scriptscriptstyle G}$, $v_n = v$, that $\phi_i$ is a key polynomial for $v_{i-1}$, $\lambda_i > v_{i-1}(\phi_i)$
-    and that $v_i = [v_{i-1}, v_i(\phi_i) = \lambda_i]$. 
-    Also, $\lambda_i \neq \infty$ for $i < n$.
-    We say that the augmentation chain $v_0,\dots,v_n$ is \textit{minimal} if
-    \begin{align}
-        \deg \phi_i < \cdots < \deg \phi_n.
-    \end{align}
-\end{definition}
-
-\begin{theorem}[{\cite[Theorem 8.1 and Theorem 15.3]{MacLane}}]
-    Let $v \in V(K[x])^*$.
-    Then there exists a unique minimal augmentation chain representing $v$.
-    In particular, $v$ is inductive.
-\end{theorem}
-
-
-\subsection{Discs, Discoids and Inductive Valuations}
-
-\begin{definition}
-    \begin{enumerate}[(i)]
-        \item Let $\alpha \in K$ and let $\lambda \in \hat{\QQ}$. 
-            Then
-                \begin{align}
-                    D(\alpha, \lambda) \coloneqq \lbrace x \in K:\, v_K(x - \alpha) \geq \lambda\rbrace
-                \end{align}
-            is the \textit{(closed) disc} with centre $\alpha$ and radius $\lambda$.
-        \item Let $\phi \in K[x]$ be a monic irreducible polynomial and let $\lambda \in \hat{\QQ}$.
-            The set 
-            \begin{align}
-                D(\phi, \lambda) \coloneqq \lbrace x \in K:\, v_K(\phi(x)) \geq \lambda \rbrace
-            \end{align}
-            is called the \textit{discoid} with centre $\phi$ and radius $\lambda$.
-    \end{enumerate}
-\end{definition}
-
-\begin{remark}
-    Any disc with centre in $K$ is a discoid.
-    Coversely, if $\phi = x - \alpha$ then $D(\phi, \lambda)$ coincides with the disc $D(\alpha, \lambda)$.
-    For arbitrary non-constant $\phi$, we have the following generalisation:
-    Let $\alpha_1,\dots,\alpha_n$ be the (pairwise distinct) roots of $\phi \in K[x]$
-    and let $\mu_1,\dots,\mu_n \in \hat{\QQ}$ be minimal\footnote{
-        Our definition of discs imply that discs with large radius are smaller than those with small radius.
-        For instance, the disc with centre $0\in K$ and radius $0$ is rather big, as it consists of all integral elements.
-    } such that $D(\alpha_i,\mu_i) \subset D(\phi,\lambda)$.
-    Then
-    \begin{align}
-        D(\phi,\lambda) = \bigcup_{i=1}^n D(\alpha_i,\mu_i),
-    \end{align}
-    see \cite[Lemma 4.43]{Rueth}.
-\end{remark}
